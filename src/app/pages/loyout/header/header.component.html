@@ -1,0 +1,11 @@
+<button [matMenuTriggerFor]="profile" mat-icon-button class="m-r-5">
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #profile="matMenu" class="mymegamenu">
+    <button mat-menu-item>
+        <mat-icon>settings</mat-icon> Configuración </button>
+    <button mat-menu-item>
+        <mat-icon>account_box</mat-icon> Perfil </button>
+    <button mat-menu-item>
+        <mat-icon>exit_to_app</mat-icon> Cerrar Sesión </button>
+</mat-menu>

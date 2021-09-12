@@ -1,0 +1,159 @@
+// Variables
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$bodyfont: 'Poppins', sans-serif;
+$headingfont: 'Poppins', sans-serif;
+
+@import '~@angular/material/theming';
+
+/*Material Theme Colors*/
+
+$md-primary-color: (
+    50 : #e6ecf5,
+    100 : #c1d1e6,
+    200 : #97b2d6,
+    300 : #6d93c6,
+    400 : #4e7bb9,
+    500 : #2f64ad,
+    600 : #2a5ca6,
+    700 : #23529c,
+    800 : #1d4893,
+    900 : #123683,
+    A100 : #b7cbff,
+    A200 : #84a7ff,
+    A400 : #5182ff,
+    A700 : #3770ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #ffffff,
+    )
+);
+
+$md-accent-color: (
+    50 : #eaebec,
+    100 : #caced0,
+    200 : #a7adb1,
+    300 : #838c91,
+    400 : #69737a,
+    500 : #4e5a62,
+    600 : #47525a,
+    700 : #3d4850,
+    800 : #353f46,
+    900 : #252e34,
+    A100 : #80c8ff,
+    A200 : #4db2ff,
+    A400 : #1a9dff,
+    A700 : #0092ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #ffffff,
+    )
+);
+
+
+$primary:  mat-palette($md-primary-color);
+$accent: mat-palette($md-accent-color);
+$theme: mat-light-theme($primary, $accent);
+$background: map-get($theme, background);
+$foreground: map-get($theme, 0foreground);
+
+@include mat-core();
+
+$custom-typography: mat-typography-config(
+  $font-family: 'Poppins, sans-serif'
+);
+
+// Override the typography in the core CSS.
+@include mat-core($custom-typography);
+
+// Default Theme
+@include angular-material-theme($theme);
+
+// Dark Theme
+
+/*Theme Colors*/
+$topbar: #2196f3;
+$sidebar: #fff;
+$sidebar-white: #e5edef;
+$sidebar-alt: #f2f6f8;
+$bodycolor: #eef5f9;
+$headingtext: #455a64;
+$bodytext: #67757c;
+$sidebar-text: #fff;
+$sidebar-icons: #e5edef;
+$sidebar-color: #47525a;
+
+$font-16: 16px;
+
+$light-text: #a6b7bf;
+$themecolor: #028ee1;
+$themecolor-alt: #2f64ad;
+$themecolor-dark: #028ee1;
+
+/*bootstrap Color*/
+$danger: #fc4b6c;
+$success: #26c6da;
+$warning: #ffb22b;
+$primary: #7460ee;
+$info: #1e88e5;
+$inverse: #4e5a62;
+$muted: #99abb4;
+$dark: #263238;
+$light: #f2f4f8;
+$extra-light: #ebf3f5;
+$secondary: #727b84;
+
+/*Light colors*/
+$light-danger: #f9e7eb;
+$light-success: #e8fdf8;
+$light-warning: #fff8ec;
+$light-primary: #f1effd;
+$light-info: #e3f3fd;
+$light-inverse: #f6f6f6;
+$light-megna: #e0f2f4;
+
+
+/*Normal Color*/
+$white: #ffffff;
+$red: #fb3a3a;
+$yellow: #a0aec4;
+$purple: #7460ee;
+$blue: #02bec9;
+$megna: #00897b;
+
+/*Extra Variable*/
+$rgt: right;
+$lft: left;
+$border: rgba(120, 130, 140, 0.13);
+$table-border: #f3f1f1;
+$card-brd: #d7dfe3;
+$dark-text: #848a96;
+$radius: 4px;
+$form-brd: #d9d9d9;
