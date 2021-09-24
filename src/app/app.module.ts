@@ -9,14 +9,15 @@ import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { LoyoutComponent } from './pages/loyout/loyout.component';
-import { HeaderComponent } from './pages/loyout/header/header.component';
-import { SidebarComponent } from './pages/loyout/sidebar/sidebar.component';
+import { LayoutComponent } from './pages/layout/layout.component';
+import { HeaderComponent } from './pages/layout/header/header.component';
+import { SidebarComponent } from './pages/layout/sidebar/sidebar.component';
 import { SnipperComponent } from './pages/spinner/spinner.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material/material.module';
+import { LoginComponent } from './pages/login/login.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -25,10 +26,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 @NgModule({
   declarations: [
     AppComponent,
-    LoyoutComponent,
+    LayoutComponent,
     HeaderComponent,
     SidebarComponent,
-    SnipperComponent
+    SnipperComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

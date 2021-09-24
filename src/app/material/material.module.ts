@@ -14,6 +14,10 @@ import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [],
@@ -32,7 +36,11 @@ import {MatTableModule} from '@angular/material/table';
     MatSidenavModule,
     MatToolbarModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
+    MatProgressBarModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatCheckboxModule
 
   ]
 })

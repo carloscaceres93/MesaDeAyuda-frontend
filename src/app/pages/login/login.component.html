@@ -1,0 +1,58 @@
+<div class="page-wrap h-full slate">
+  <div class="session-form-hold">
+    <mat-progress-bar mode="determinate" class="session-progress"></mat-progress-bar>
+    <mat-card>
+      <mat-card-content>
+        <div class="text-center p-t-10 p-b-20">
+          <img width="60px" src="assets/images/egret.png" alt="">
+          <p class="text-muted m-0">Ingrese con su cuenta</p>
+        </div>
+
+        <p *ngIf="errorMsg" class="text-center"><small class="text-warning">{{errorMsg}}</small></p>
+
+        <form [formGroup]="signinForm" (ngSubmit)="signin()">
+          <div class="">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                name="username"
+                [formControl]="signinForm.controls['username']"
+                placeholder="Usuario"
+                value="">
+            </mat-form-field>
+            <small
+              *ngIf="signinForm.controls['username'].hasError('required') && signinForm.controls['username'].touched"
+              class="text-danger font-10"> Usuario requerido </small>
+          </div>
+
+          <div class="">
+            <mat-form-field class="full-width">
+              <input
+                type="password"
+                name="password"
+                matInput
+                [formControl]="signinForm.controls['password']"
+                placeholder="Contraseña"
+                value="">
+            </mat-form-field>
+            <small
+              *ngIf="signinForm.controls['password'].hasError('required') && signinForm.controls['password'].touched"
+              class="text-danger font-12"> Contraseña requerida </small>
+          </div>
+
+          <div class="p-t-20">
+            <mat-checkbox
+              name="rememberMe"
+              [formControl]="signinForm.controls['rememberMe']"
+              class="p-b-20 font-14">Recordar mis datos</mat-checkbox>
+          </div>
+
+          <button mat-raised-button color="primary" class="full-width m-b-20" [disabled]="signinForm.invalid">Ingresar</button>
+          <div class="text-center">
+            <a [routerLink]="'/sessions/forgot-password'" color="primary">Olvidé mi contraseña</a>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

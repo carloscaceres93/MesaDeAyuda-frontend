@@ -16,8 +16,8 @@ File: scss
  *	7. Widgets
  *	8. Custom Templates
  */
-/******************* 
-Global Styles 
+/*******************
+Global Styles
 *******************/
 
 * {
@@ -493,6 +493,14 @@ html body {
 /*******************
 Thumb size
 *******************/
+
+.h-full{
+  height: 100%;
+}
+
+.full-width {
+  width: 100% !important;
+}
 
 .thumb-sm {
   height: 32px;
