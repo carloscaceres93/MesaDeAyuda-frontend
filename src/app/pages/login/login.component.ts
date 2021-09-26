@@ -3,8 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
 
@@ -18,7 +17,7 @@ export class LoginComponent implements OnInit {
     this.signinForm = new FormGroup({
       username: new FormControl('Watson', Validators.required),
       password: new FormControl('12345678', Validators.required),
-      rememberMe: new FormControl(true)
+      rememberMe: new FormControl(false)
     })
   }
 
