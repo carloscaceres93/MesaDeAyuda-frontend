@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,28 +8,18 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  signinForm: FormGroup;
-  errorMsg = '';
-  signupForm: FormGroup;
+  public form: FormGroup = Object.create(null);
 
-  constructor() { }
+  constructor(private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
-    this.signinForm = new FormGroup({
-      username: new FormControl('Watson', Validators.required),
-      password: new FormControl('12345678', Validators.required),
-      rememberMe: new FormControl(false)
-    })
+    this.form = this.fb.group({
+      uname: [null, Validators.compose([Validators.required])],
+      password: [null, Validators.compose([Validators.required])]
+    });
   }
 
-  signin(){
-
-  }
-
-  onSubmit() {
-    if (!this.signinForm.invalid) {
-      // do what you wnat with your data
-      console.log(this.signinForm.value);
-    }
+  onSubmit(): void {
+    this.router.navigate(['/inicio']);
   }
 }

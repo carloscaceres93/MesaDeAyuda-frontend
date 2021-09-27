@@ -1,24 +1,3 @@
-/*
-Template Name: Material Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
-File: scss
-*/
-/**
- * Table Of Content
- *
- * 	1. Globals
- *	2. Headers
- *	3. Navigations
- *	4. Banners
- *	5. Footers
- *	6. Posts
- *	7. Widgets
- *	8. Custom Templates
- */
-/*******************
-Global Styles
-*******************/
 
 * {
   outline: none;
@@ -178,11 +157,33 @@ html body {
 .d-flex {
   display: flex;
 }
+
+.flex-column {
+  flex-direction: column;
+  overflow: hidden;
+}
+.justify-content-end {
+  justify-content: end;
+}
+.justify-content-center {
+  justify-content: center;
+}
 .no-shrink {
   flex-shrink: 0;
 }
 .oh {
   overflow: hidden;
+}
+.text-nowrap {
+  white-space: nowrap;
+}
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.overflow-x-hidden {
+  overflow-x: hidden;
 }
 /*******************
 Blockquote
@@ -210,8 +211,16 @@ html body {
     padding: 0px;
   }
 
+  .p-12 {
+    padding: 12px;
+  }
+
   .p-10 {
     padding: 10px;
+  }
+
+  .p-15 {
+    padding: 15px;
   }
 
   .p-20 {
@@ -226,12 +235,28 @@ html body {
     padding-left: 0px;
   }
 
+  .p-l-5 {
+    padding-left: 5px;
+  }
+
+  .p-r-5 {
+    padding-right: 5px;
+  }
+
   .p-l-10 {
     padding-left: 10px;
   }
 
+  .p-r-15 {
+    padding-right: 15px;
+  }
+
   .p-l-20 {
     padding-left: 20px;
+  }
+
+  .p-l-25 {
+    padding-left: 25px;
   }
 
   .p-r-0 {
@@ -262,6 +287,10 @@ html body {
     padding-top: 10px;
   }
 
+  .p-t-15 {
+    padding-top: 15px;
+  }
+
   .p-t-20 {
     padding-top: 20px;
   }
@@ -282,6 +311,10 @@ html body {
     padding-bottom: 10px;
   }
 
+  .p-b-15 {
+    padding-bottom: 15px;
+  }
+
   .p-b-20 {
     padding-bottom: 20px;
   }
@@ -293,6 +326,17 @@ html body {
   .p-b-40 {
     padding-bottom: 40px;
   }
+
+  .p-l-30 {
+    padding-left: 30px;
+  }
+
+  .p-r-30 {
+    padding-right: 30px;
+  }
+}
+.text-dark-black {
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /*******************
@@ -301,6 +345,10 @@ Margin
 html body {
   .m-0 {
     margin: 0px;
+  }
+
+  .m-15 {
+    margin: 15px;
   }
 
   .m-l-5 {
@@ -494,14 +542,6 @@ html body {
 Thumb size
 *******************/
 
-.h-full{
-  height: 100%;
-}
-
-.full-width {
-  width: 100% !important;
-}
-
 .thumb-sm {
   height: 32px;
   width: 32px;
@@ -688,16 +728,203 @@ Rounds
     border-radius: 100%;
   }
 }
+.round-lg {
+  line-height: 65px;
+  width: 60px;
+  height: 60px;
+  font-size: 30px;
+}
 .round.round-info {
   background: $info;
 }
+.round.round-warning {
+  background: $warning;
+}
+.round.round-danger {
+  background: $danger;
+}
+.round.round-success {
+  background: $success;
+}
+.round.round-primary {
+  background: $primary;
+}
+/*******************
+Labels
+*******************/
 
+.label {
+  padding: 3px 10px;
+  line-height: 13px;
+  color: $white;
+  font-weight: 400;
+  border-radius: $radius;
+  font-size: 75%;
+}
+
+.label-rounded {
+  border-radius: 60px;
+}
+
+.label-custom {
+  background-color: $megna;
+}
+
+.label-success {
+  background-color: $success;
+}
+
+.label-info {
+  background-color: $info;
+}
+
+.label-warning {
+  background-color: $warning;
+}
+
+.label-danger {
+  background-color: $danger;
+}
+
+.label-megna {
+  background-color: $megna;
+}
+
+.label-primary {
+  background-color: $primary;
+}
+
+.label-purple {
+  background-color: $purple;
+}
+
+.label-red {
+  background-color: $red;
+}
+
+.label-inverse {
+  background-color: $inverse;
+}
+
+.label-default {
+  background-color: $light;
+}
+
+.label-white {
+  background-color: $white;
+}
+
+.label-light-success {
+  background-color: $light-success;
+  color: $success;
+}
+
+.label-light-info {
+  background-color: $light-info;
+  color: $info;
+}
+
+.label-light-warning {
+  background-color: $light-warning;
+  color: $warning;
+}
+
+.label-light-danger {
+  background-color: $light-danger;
+  color: $danger;
+}
+
+.label-light-megna {
+  background-color: $light-megna;
+  color: $megna;
+}
+
+.label-light-primary {
+  background-color: $light-primary;
+  color: $primary;
+}
+
+.label-light-inverse {
+  background-color: $light-inverse;
+  color: $inverse;
+}
+
+/*******************
+Notify
+*******************/
+
+.notify {
+  position: relative;
+  top: -20px;
+  right: 0px;
+  .point {
+    width: 6px;
+    height: 6px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    background-color: $danger;
+    position: absolute;
+    right: 6px;
+    top: -12px;
+  }
+}
+
+@-moz-keyframes heartbit {
+  0% {
+    -moz-transform: scale(0);
+    opacity: 0;
+  }
+  25% {
+    -moz-transform: scale(0.1);
+    opacity: 0.1;
+  }
+  50% {
+    -moz-transform: scale(0.5);
+    opacity: 0.3;
+  }
+  75% {
+    -moz-transform: scale(0.8);
+    opacity: 0.5;
+  }
+  100% {
+    -moz-transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes heartbit {
+  0% {
+    -webkit-transform: scale(0);
+    opacity: 0;
+  }
+  25% {
+    -webkit-transform: scale(0.1);
+    opacity: 0.1;
+  }
+  50% {
+    -webkit-transform: scale(0.5);
+    opacity: 0.3;
+  }
+  75% {
+    -webkit-transform: scale(0.8);
+    opacity: 0.5;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    opacity: 0;
+  }
+}
 .btn-block {
   display: block;
   width: 100%;
 }
 .btn-lg {
   line-height: 48px !important;
+}
+
+.w-100 {
+  width: 100%;
 }
 /*******************
 froms
@@ -724,6 +951,11 @@ Mat card
   margin: 15px;
   padding: 0px !important;
   border-radius: $radius;
+  &.text-white {
+    small {
+      color: rgba(255, 255, 255, 0.7) !important;
+     }
+  }
 
   .mat-card-content {
     font-size: 1rem;
@@ -751,8 +983,9 @@ Mat card
       .mat-card-title {
         color: $white;
       }
+      small,
       .mat-card-subtitle {
-        color: rgba(255, 255, 255, 0.7);
+        color: rgba(255, 255, 255, 0.7) !important;
       }
     }
   }
@@ -796,6 +1029,18 @@ Table
   }
 }
 /*******************
+Sparkline chart tooltip
+*******************/
+.jqstooltip {
+  width: auto !important;
+  height: auto !important;
+  background: $inverse;
+  color: $white;
+  padding: 5px 15px;
+  border: 0px;
+  border-radius: 60px;
+}
+/*******************
 list inline
 *******************/
 .list-inline {
@@ -810,95 +1055,121 @@ list inline
     }
   }
 }
+.button-row button {
+  margin-right: 2px;
+  margin-left: 2px;
+}
 
-/*******************/
-/*Chat widget*/
-/*******************/
+.mini-spacer {
+  margin-top: 90px;
+}
 
-.message-box {
-  ul li {
-    .drop-title {
-      font-weight: 500;
-      padding: 11px 20px 15px;
-      border-bottom: 1px solid $border;
-    }
-    .nav-link {
-      border-top: 1px solid $border;
-      padding-top: 15px;
-    }
-  }
-  .message-widget {
-    position: relative;
+/*******************
+List-style-none
+******************/
+
+ul.list-style-none {
+  margin: 0px;
+  padding: 0px;
+  li {
+    list-style: none;
     a {
-      border-bottom: 1px solid $border;
-      display: flex;
+      color: $themecolor;
+      padding: 8px 0px;
+      display: block;
       text-decoration: none;
-      padding: 9px 15px;
       &:hover {
-        background: $light;
-      }
-      &:last-child {
-        border-bottom: 0px;
-      }
-      div {
-        white-space: normal;
-      }
-      .user-img {
-        width: 45px;
-        position: relative;
-        display: inline-block;
-        margin-right: 10px;
-        img {
-          width: 100%;
-        }
-        .profile-status {
-          border: 2px solid $white;
-          border-radius: 50%;
-          display: inline-block;
-          height: 10px;
-          left: 33px;
-          position: absolute;
-          top: -1px;
-          width: 10px;
-        }
-        .online {
-          background: $success;
-        }
-        .busy {
-          background: $danger;
-        }
-        .away {
-          background: $warning;
-        }
-        .offline {
-          background: $warning;
-        }
-      }
-      .mail-contnet {
-        display: inline-block;
-        width: 73%;
-        vertical-align: middle;
-        h5 {
-          margin: 5px 0px 0;
-          color: #212121;
-        }
-        .mail-desc,
-        .time {
-          font-size: 12px;
-          display: block;
-          margin: 1px 0;
-          text-overflow: ellipsis;
-          overflow: hidden;
-          color: $bodytext;
-          white-space: nowrap;
-        }
+        color: $themecolor;
       }
     }
   }
 }
 
-.add-contact {
-  position: absolute !important;
-  right: 17px;
-  top: 57px;
+.align-self-center {
+  align-self: center;
 }
+
+.float-right {
+  float: right;
+}
+
+.page-breadcrumb {
+  .breadcrumb {
+    padding: 0px;
+    margin: 0px;
+    background: transparent;
+    .breadcrumb-item {
+      font-size: 14px;
+    }
+    .breadcrumb-item a {
+      padding-right: 0.5rem;
+    }
+    .breadcrumb-item + .breadcrumb-item::before {
+      content: "\e649";
+      font-family: themify;
+      color: $sidebar-icons;
+      font-size: 11px;
+      padding-right: 0.5rem;
+    }
+    .breadcrumb-item + .breadcrumb-item.active {
+      color: $sidebar-icons;
+    }
+  }
+}
+
+.list-unstyled {
+  margin: 0px;
+  padding: 0px;
+
+  li {
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    padding: 15px 0;
+  }
+  .shrink-none {
+    flex-shrink: 0;
+  }
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.page-breadcrumb .breadcrumb .breadcrumb-item a {
+  display: initial;
+}
+
+.apexcharts-text {
+  fill: $muted;
+}
+.apexcharts-gridline,
+.apexcharts-xaxis-tick,
+.apexcharts-xaxis line {
+  stroke: rgba(0, 0, 0, 0.1);
+}
+.todo-toggle {
+    position: absolute !important;
+    z-index: 9;
+    left: -5px;
+  }
+
+@media (min-width: 768px) {
+  .d-md-flex {
+    display: flex;
+  }
+
+
+}
+
+@media (max-width: 767px) {
+
+}
+
+.input-file-button {
+  input::-webkit-file-upload-button {
+    background: transparent;
+    border: 0;
+    color: white;
+  }
+}
+

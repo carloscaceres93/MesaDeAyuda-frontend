@@ -21,11 +21,11 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 @Component({
-  selector: 'app-spinner',
-  templateUrl: './spinner.component.html',
-  styleUrls: ['./spinner.component.scss']
+  selector: 'app-inicio',
+  templateUrl: './inicio.component.html',
+  styleUrls: []
 })
-export class SnipperComponent implements OnInit {
+export class InicioComponent implements OnInit {
 
   constructor() { }
 

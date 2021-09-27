@@ -1,18 +1,25 @@
-import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { MenuItems } from 'src/app/shared/menu-items/menu-items';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html'
 })
 export class SidebarComponent implements OnDestroy {
+
+  public config: PerfectScrollbarConfigInterface = {};
   mobileQuery: MediaQueryList;
 
   private _mobileQueryListener: () => void;
 
+
+
   constructor(
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,
+    public menuItems: MenuItems
   ) {
     this.mobileQuery = media.matchMedia('(min-width: 768px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();

@@ -12,12 +12,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { HeaderComponent } from './pages/layout/header/header.component';
 import { SidebarComponent } from './pages/layout/sidebar/sidebar.component';
-import { SnipperComponent } from './pages/spinner/spinner.component';
+import { SpinnerComponent } from './shared/spinner.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material/material.module';
 import { LoginComponent } from './pages/login/login.component';
+import { SharedModule } from './shared/shared.module';
+import { InicioComponent } from './pages/incio/inicio.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -29,8 +31,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     LayoutComponent,
     HeaderComponent,
     SidebarComponent,
-    SnipperComponent,
-    LoginComponent
+    InicioComponent,
+    LoginComponent,
+    SpinnerComponent
+
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     FlexLayoutModule,
     ReactiveFormsModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule
 
   ],
   providers: [

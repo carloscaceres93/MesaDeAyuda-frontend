@@ -1,58 +1,45 @@
-<div class="page-wrap h-full slate">
-  <div class="session-form-hold">
-    <mat-progress-bar mode="determinate" class="session-progress"></mat-progress-bar>
-    <mat-card>
-      <mat-card-content>
-        <div class="text-center p-t-20 p-b-20">
-          <img width="90px" src="assets/images/logo-login.png" alt="">
-          <p class="text-muted m-0">Ingrese con su cuenta</p>
-        </div>
+<div class="login-register">
+  <div class="login-register-box">
+      <mat-card>
+          <mat-card-content>
+              <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                  <div class="text-center">
+                      <img alt="homepage" src="assets/images/Logo.png">
+                      <h4 class="text-muted m-t-0">Ingrese con su cuenta</h4>
+                  </div>
 
-        <p *ngIf="errorMsg" class="text-center"><small class="text-warning">{{errorMsg}}</small></p>
+                  <div fxLayout="row wrap">
+                      <!-- col full-->
+                      <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+                          <mat-form-field>
+                              <input matInput placeholder="Usuario" [formControl]="form.controls['uname']">
+                          </mat-form-field>
+                          <small *ngIf="form.controls['uname'].hasError('required') && form.controls['uname'].touched" class="text-danger support-text">Usuario requerido.</small>
+                      </div>
+                      <!-- col full-->
+                      <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+                          <mat-form-field>
+                              <input matInput type="password" placeholder="Password" [formControl]="form.controls['password']">
+                          </mat-form-field>
+                          <small *ngIf="form.controls['password'].hasError('required') && form.controls['password'].touched" class="text-danger support-text">Contraseña requerida.</small>
+                      </div>
+                      <!-- col half-->
+                      <div fxFlex.gt-sm="50" fxFlex.gt-xs="50">
+                          <mat-checkbox color="warn">Recordar datos</mat-checkbox>
+                      </div>
 
-        <form [formGroup]="signinForm" (ngSubmit)="signin()">
-          <div class="">
-            <mat-form-field class="full-width">
-              <input
-                matInput
-                name="username"
-                [formControl]="signinForm.controls['username']"
-                placeholder="Usuario"
-                value="">
-            </mat-form-field>
-            <small
-              *ngIf="signinForm.controls['username'].hasError('required') && signinForm.controls['username'].touched"
-              class="text-danger font-10"> Usuario requerido </small>
-          </div>
-
-          <div class="">
-            <mat-form-field class="full-width">
-              <input
-                type="password"
-                name="password"
-                matInput
-                [formControl]="signinForm.controls['password']"
-                placeholder="Contraseña"
-                value="">
-            </mat-form-field>
-            <small
-              *ngIf="signinForm.controls['password'].hasError('required') && signinForm.controls['password'].touched"
-              class="text-danger font-12"> Contraseña requerida </small>
-          </div>
-
-          <div class="p-t-20">
-            <mat-checkbox
-              name="rememberMe"
-              [formControl]="signinForm.controls['rememberMe']"
-              class="p-b-20 font-14">Recuérdame</mat-checkbox>
-          </div>
-
-          <button mat-raised-button color="primary" class="full-width m-b-20" [disabled]="signinForm.invalid">Ingresar</button>
-          <div class="text-center">
-            <a [routerLink]="'/sessions/forgot-password'" color="primary">Olvidé mi contraseña</a>
-          </div>
-        </form>
-      </mat-card-content>
-    </mat-card>
+                      <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+                          <button mat-raised-button color="primary" class="btn-block btn-lg m-t-20 m-b-20" type="submit" [disabled]="!form.valid">Ingresar</button>
+                      </div>
+                      <!-- col full-->
+                      <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100" class="text-center">
+                          <span>
+                              <a [routerLink]="['/authentication/register']" class="text-info link">¿Olvido su contraseña?</a>
+                          </span>
+                      </div>
+                  </div>
+              </form>
+          </mat-card-content>
+      </mat-card>
   </div>
 </div>
