@@ -35,7 +35,7 @@ html .page-wrapper {
   display: flex;
   background-size: cover;
   align-items: center;
-  background-color: $light;
+
 
   .mat-card {
     margin: 0px 15px;
@@ -47,6 +47,39 @@ html .page-wrapper {
 
 
   .login-register-box {
+    max-width: 400px;
+    min-width: 280px;
+    margin: 0 auto;
+    vertical-align: middle;
+  }
+
+  .support-text {
+    margin-top: -15px;
+    display: block;
+    padding-bottom: 15px;
+  }
+}
+
+/*******************
+ Error pages
+*******************/
+.error-pages {
+  height: 100vh;
+  display: flex;
+  background-size: cover;
+  align-items: center;
+  background-color: $light;
+
+  .mat-card {
+    margin: 0px 15px;
+  }
+
+  .mat-form-field {
+    width: 100%;
+  }
+
+
+  .error-pages-box {
     max-width: 400px;
     min-width: 280px;
     margin: 0 auto;
