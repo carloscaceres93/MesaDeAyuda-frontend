@@ -18,6 +18,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [],
@@ -40,7 +41,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatProgressBarModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSnackBarModule
 
   ]
 })

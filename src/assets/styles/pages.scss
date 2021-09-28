@@ -35,6 +35,7 @@ html .page-wrapper {
   display: flex;
   background-size: cover;
   align-items: center;
+  background-color: $light;
 
   .mat-card {
     margin: 0px 15px;
@@ -50,6 +51,7 @@ html .page-wrapper {
     min-width: 280px;
     margin: 0 auto;
     vertical-align: middle;
+    background-color: $light;
   }
 
   .support-text {

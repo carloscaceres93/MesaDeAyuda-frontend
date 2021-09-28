@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MenuItems } from 'src/app/shared/menu-items/menu-items';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
@@ -12,9 +12,10 @@ export class SidebarComponent implements OnDestroy {
   public config: PerfectScrollbarConfigInterface = {};
   mobileQuery: MediaQueryList;
 
+  @Input() showClass: boolean = false;
+  @Output() notify: EventEmitter<boolean> = new EventEmitter<boolean>()
+
   private _mobileQueryListener: () => void;
-
-
 
   constructor(
     changeDetectorRef: ChangeDetectorRef,
@@ -28,5 +29,18 @@ export class SidebarComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
+
+  scrollToTop(): void {
+    document.querySelector('.page-wrapper')?.scroll({
+      top: 0,
+      left: 0
+    });
+  }
+
+  handleNotify() {
+    if(window.innerWidth < 1024){
+      this.notify.emit(!this.showClass);
+    }
   }
 }
