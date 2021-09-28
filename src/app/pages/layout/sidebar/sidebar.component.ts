@@ -12,7 +12,6 @@ export class SidebarComponent implements OnDestroy {
   public config: PerfectScrollbarConfigInterface = {};
   mobileQuery: MediaQueryList;
 
-  @Input() showClass: boolean = false;
   @Output() notify: EventEmitter<boolean> = new EventEmitter<boolean>()
 
   private _mobileQueryListener: () => void;
@@ -36,11 +35,5 @@ export class SidebarComponent implements OnDestroy {
       top: 0,
       left: 0
     });
-  }
-
-  handleNotify() {
-    if(window.innerWidth < 1024){
-      this.notify.emit(!this.showClass);
-    }
   }
 }

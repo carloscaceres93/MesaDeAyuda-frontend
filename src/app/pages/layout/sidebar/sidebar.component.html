@@ -2,26 +2,22 @@
   <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems.getMenuitem()" routerLinkActive="selected"
       group="{{menuitem.state}}" (click)="scrollToTop()">
 
-      <a class="" appAccordionToggle href="javascript:;" *ngIf="menuitem.type === 'sub'">
+      <a class="" appAccordionToggle href="javascript:;">
           <mat-icon>{{ menuitem.icon }}</mat-icon>
           <span>{{ menuitem.name}}</span>
           <span fxFlex></span>
-          <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
           <mat-icon class="dd-icon">keyboard_arrow_down</mat-icon>
       </a>
 
-      <mat-nav-list class="sub-item" *ngIf="menuitem.type === 'sub'">
-
-          <mat-list-item *ngFor="let childitem of menuitem.children; let j=index; let i = childitem"
+      <mat-nav-list class="sub-item">
+          <mat-list-item *ngFor="let subMenu of menuitem.subMenu"
               routerLinkActive="selected">
-              <a [routerLink]="['/', menuitem.state, childitem.state ]" *ngIf="childitem.type === 'link'"
-                  class="relative" routerLinkActive="selected"
-                  (click)="itemSelect[i]=j" (click)="handleNotify()">{{ childitem.name}}</a>
+              <a [routerLink]="['/', menuitem.state, subMenu.state ]" *ngIf="subMenu.type === 'link'"
+                  class="relative" routerLinkActive="selected">
+                  {{ subMenu.name}}
+              </a>
           </mat-list-item>
       </mat-nav-list>
-      <div class="saperator text-muted" *ngIf="menuitem.type === 'saperator'">
-          <span>{{ menuitem.name}}</span>
-      </div>
 
   </mat-list-item>
 </mat-nav-list>
