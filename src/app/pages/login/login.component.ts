@@ -16,24 +16,37 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private loginService: LoginService
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      uname: [null, Validators.compose([Validators.required])],
-      password: [null, Validators.compose([Validators.required])]
-    });
-  }
-
-  iniciarSesion(){
-    this.loginService.login(this.form.value['uname'], this.form.value['password']).subscribe(data => {
-      sessionStorage.setItem(environment.TOKEN_NAME, data.access_token);
-
-      this.router.navigate(['pages/inicio']);
+      identificacion: [null, Validators.compose([Validators.required])],
+      clave: [null, Validators.compose([Validators.required])]
     });
   }
 
   onSubmit(): void {
-    this.router.navigate(['/inicio']);
+
+    console.log('Yeah?');
+
+    let identificacion = this.form.value['identificacion'];
+    let clave = this.form.value['clave'];
+
+    this.loginService.login(identificacion, clave).subscribe(data => {
+
+      sessionStorage.setItem(environment.NOMBRE_TOKEN, data.token);
+
+      this.router.navigate(['/inicio']);
+
+    }, err => {
+
+      let estadoPeticion = err.status;
+      console.log(err);
+
+      if(estadoPeticion == 401 || estadoPeticion == 400) {
+        console.log('Credenciales incorrectas');
+      }
+    });
+    
   }
 }

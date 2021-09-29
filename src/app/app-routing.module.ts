@@ -18,7 +18,6 @@ const routes: Routes = [
     path: 'inicio',
     component: LayoutComponent
   },
-
   {
     path: 'error-404',
     component: Error404Component

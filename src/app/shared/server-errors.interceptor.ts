@@ -21,24 +21,15 @@ export class ServerErrorsInterceptor implements HttpInterceptor {
                         throw new Error(event.body.errorMessage);
                     }
                 }
-
             })).pipe(catchError((err) => {
-                if (err.status === 400) {
+                if (err.status === 500) {
                     console.log(err);
-                    this.snackBar.open(err.mensaje, 'ERROR 400', { duration: 5000 });
+                    this.snackBar.open('Ha ocurrido un error inesperado', 'ERROR', { duration: 5000 });
                 }
                 else if (err.status === 404){
                   this.router.navigate(['/error-404']);
-                }
-                else if (err.status === 403 || err.status === 401) {
-                    console.log(err);
-                    this.snackBar.open('Acceso denegado', 'ERROR 403', { duration: 5000 });
-                    sessionStorage.clear();
-                    this.router.navigate(['/login']);
-                }
-                else if (err.status === 500) {
-                    this.snackBar.open(err.error.mensaje, 'ERROR 500', { duration: 5000 });
                 } else {
+                    console.log(err);
                     this.snackBar.open(err.error.mensaje, 'ERROR', { duration: 5000 });
                 }
                 return EMPTY;

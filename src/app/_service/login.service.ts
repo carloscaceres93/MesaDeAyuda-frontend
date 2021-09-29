@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class LoginService {
 
-  private url: string = `${environment.HOST}/oauth/token`
+  private url: string = `${environment.HOST}/seguridad/inicio-sesion/generar-token`
   private jwtHelper = new JwtHelperService();
 
   constructor(
@@ -17,17 +17,17 @@ export class LoginService {
     private router: Router
   ) { }
 
-  login(usuario: string, contrasena: string) {
-    const body = `grant_type=password&username=${encodeURIComponent(usuario)}&password=${encodeURIComponent(contrasena)}`;
-
-    return this.http.post<any>(this.url, body, {
-      headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8').set('Authorization', 'Basic ' + btoa(environment.TOKEN_AUTH_USERNAME + ':' + environment.TOKEN_AUTH_PASSWORD))
-    });
+  login(usuario: string, clave: string) {
+    let json = {
+      usuario: usuario,
+      clave: clave
+    }
+    return this.http.post<any>(this.url, json);
   }
 
   estaLogueado() {
     let respuesta: boolean = false;
-    let access_token: string =  sessionStorage.getItem(environment.TOKEN_NAME);
+    let access_token: string = sessionStorage.getItem(environment.NOMBRE_TOKEN);
 
     if (access_token != null) {
       respuesta = !this.jwtHelper.isTokenExpired(access_token);
@@ -39,19 +39,19 @@ export class LoginService {
   }
 
   cerrarSesion(): void {
-    sessionStorage.removeItem(environment.TOKEN_NAME);
+    sessionStorage.removeItem(environment.NOMBRE_TOKEN);
     this.router.navigate(['login']);
   }
 
   obtenerUsuario() {
-    let access_token: string =  sessionStorage.getItem(environment.TOKEN_NAME);
+    let access_token: string = sessionStorage.getItem(environment.NOMBRE_TOKEN);
     let usuario = this.jwtHelper.decodeToken(access_token).user_name;
     return usuario;
   }
 
   obtenerRol() {
-    let access_token: string =  sessionStorage.getItem(environment.TOKEN_NAME);
-    let role = this.jwtHelper.decodeToken(access_token).authorities[0];
+    let access_token: string = sessionStorage.getItem(environment.NOMBRE_TOKEN);
+    let role = this.jwtHelper.decodeToken(access_token).authorities;
     return role;
   }
 

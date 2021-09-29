@@ -13,7 +13,7 @@ import { MaterialModule } from './material/material.module';
 import { SharedModule } from './shared/shared.module';
 import { environment } from 'src/environments/environment';
 import { JwtModule } from '@auth0/angular-jwt';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 //Components
@@ -25,6 +25,7 @@ import { InicioComponent } from './pages/incio/inicio.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
 import { Error404Component } from './pages/error404/error404.component';
+import { ServerErrorsInterceptor } from './shared/server-errors.interceptor';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -32,7 +33,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 };
 
 export function tokenGetter() {
-  return sessionStorage.getItem(environment.TOKEN_NAME);
+  return sessionStorage.getItem(environment.NOMBRE_TOKEN);
 }
 
 @NgModule({
@@ -44,8 +45,7 @@ export function tokenGetter() {
     InicioComponent,
     LoginComponent,
     SpinnerComponent,
-    Error404Component,
-
+    Error404Component
   ],
   imports: [
     BrowserModule,
@@ -68,6 +68,7 @@ export function tokenGetter() {
   ],
   providers: [
     { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG },
+    { provide: HTTP_INTERCEPTORS, useClass: ServerErrorsInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })
