@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginService } from 'src/app/_service/login.service';
+import { LoginService } from 'src/app/_servicio/login.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html'
+  selector: 'app-incio-sesion',
+  templateUrl: './inicio-sesion.component.html'
 })
-export class LoginComponent implements OnInit {
+export class InicioSesionComponent implements OnInit {
 
   public form: FormGroup = Object.create(null);
 
@@ -36,17 +36,17 @@ export class LoginComponent implements OnInit {
 
       sessionStorage.setItem(environment.NOMBRE_TOKEN, data.token);
 
-      this.router.navigate(['/inicio']);
+      this.router.navigate(['dispositivo'])
 
     }, err => {
 
       let estadoPeticion = err.status;
       console.log(err);
 
-      if(estadoPeticion == 401 || estadoPeticion == 400) {
+      if (estadoPeticion == 401 || estadoPeticion == 400) {
         console.log('Credenciales incorrectas');
       }
     });
-    
+
   }
 }
