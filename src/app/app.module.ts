@@ -17,15 +17,14 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 //Components
-import { LayoutComponent } from './pages/layout/layout.component';
-import { HeaderComponent } from './pages/layout/header/header.component';
-import { SidebarComponent } from './pages/layout/sidebar/sidebar.component';
+import { LayoutComponent } from './paginas/componentes/layout/layout.component';
+import { HeaderComponent } from './paginas/componentes/layout/header/header.component';
+import { SidebarComponent } from './paginas/componentes/layout/sidebar/sidebar.component';
 import { SpinnerComponent } from './shared/spinner.component';
-import { InicioComponent } from './pages/incio/inicio.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './pages/login/login.component';
-import { Error404Component } from './pages/error404/error404.component';
+import { Error404Component } from './paginas/componentes/error404/error404.component';
 import { ServerErrorsInterceptor } from './shared/server-errors.interceptor';
+import { InicioSesionComponent } from './paginas/componentes/inicio-sesion/inicio-sesion.component';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -42,8 +41,7 @@ export function tokenGetter() {
     LayoutComponent,
     HeaderComponent,
     SidebarComponent,
-    InicioComponent,
-    LoginComponent,
+    InicioSesionComponent,
     SpinnerComponent,
     Error404Component
   ],
