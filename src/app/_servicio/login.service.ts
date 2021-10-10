@@ -51,8 +51,16 @@ export class LoginService {
 
   obtenerRol() {
     let access_token: string = sessionStorage.getItem(environment.NOMBRE_TOKEN);
+    if(access_token == null) {
+      return [];
+    }
     let role = this.jwtHelper.decodeToken(access_token).authorities;
     return role;
+  }
+
+  tieneRole(role: String) {
+    let roles: String[] = this.obtenerRol();
+    return roles.includes(role);
   }
 
 }
