@@ -1,10 +1,10 @@
 <mat-nav-list appAccordion>
   <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems.getMenuitem()" routerLinkActive="selected"
-      group="{{menuitem.state}}" (click)="scrollToTop()">
+      group="{{menuitem.url}}" (click)="scrollToTop()">
 
-      <a class="" appAccordionToggle href="javascript:;">
-          <mat-icon>{{ menuitem.icon }}</mat-icon>
-          <span>{{ menuitem.name}}</span>
+      <a appAccordionToggle href="javascript:;">
+          <mat-icon>{{ menuitem.icono }}</mat-icon>
+          <span>{{ menuitem.nombre}}</span>
           <span fxFlex></span>
           <mat-icon class="dd-icon">keyboard_arrow_down</mat-icon>
       </a>
@@ -12,9 +12,9 @@
       <mat-nav-list class="sub-item">
           <mat-list-item *ngFor="let subMenu of menuitem.subMenu"
               routerLinkActive="selected">
-              <a [routerLink]="['/', menuitem.state, subMenu.state ]" *ngIf="subMenu.type === 'link'"
+              <a [routerLink]="construirUrlSubMenu(menuitem, subMenu)" *ngIf="subMenu.tipo === 'link'"
                   class="relative" routerLinkActive="selected">
-                  {{ subMenu.name}}
+                  {{ subMenu.nombre}}
               </a>
           </mat-list-item>
       </mat-nav-list>

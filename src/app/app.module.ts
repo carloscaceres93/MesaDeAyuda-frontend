@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 //Modules
@@ -25,6 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Error404Component } from './paginas/componentes/error404/error404.component';
 import { ServerErrorsInterceptor } from './shared/server-errors.interceptor';
 import { InicioSesionComponent } from './paginas/componentes/inicio-sesion/inicio-sesion.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -56,6 +57,7 @@ export function tokenGetter() {
     FormsModule,
     MaterialModule,
     SharedModule,
+    NgxSpinnerModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
@@ -68,6 +70,7 @@ export function tokenGetter() {
     { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG },
     { provide: HTTP_INTERCEPTORS, useClass: ServerErrorsInterceptor, multi: true}
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

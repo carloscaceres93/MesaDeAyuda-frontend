@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { MenuItems } from 'src/app/shared/menu-items/menu-items';
+import { Menu, MenuItems, SubMenu } from 'src/app/shared/menu-items/menu-items';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 @Component({
@@ -35,5 +35,10 @@ export class SidebarComponent implements OnDestroy {
       top: 0,
       left: 0
     });
+  }
+
+  construirUrlSubMenu(menu: Menu, subMenu: SubMenu): String {
+
+    return `/${menu.url}/${subMenu.url}`; 
   }
 }

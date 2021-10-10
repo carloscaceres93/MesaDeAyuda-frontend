@@ -1,48 +1,30 @@
 import { Injectable } from '@angular/core';
 
 export interface SubMenu {
-  state: string;
-  name: string;
-  type?: string;
+  url: string;
+  nombre: string;
+  tipo?: string;
 }
 
 export interface Menu {
-  state: string;
-  name: string;
-  type: string;
-  icon: string;
+  url: string;
+  nombre: string;
+  tipo: string;
+  icono: string;
   subMenu?: SubMenu[];
 }
 
-const MENUITEMS = [
+const MENUITEMS: Menu[] = [
   {
-    state: 'dispositivo',
-    name: 'Dispositivos',
-    type: 'sub',
-    icon: 'devices',
+    url: 'configuracion',
+    nombre: 'Configuración',
+    tipo: 'sub',
+    icono: 'manage_accounts',
     subMenu: [
-      { state: 'servicio', name: 'Servicios', type: 'link' },
-      { state: 'prueba1', name: 'prueba1', type: 'link' },
-      { state: 'prueba2', name: 'prueba2', type: 'link' },
-      { state: 'prueba3', name: 'prueba3', type: 'link' },
+      { url: 'detalle/buscar', nombre: 'Buscar detalle', tipo: 'link' },
+      { url: 'detalle/nuevo', nombre: 'Nuevo detalle', tipo: 'link' }
     ]
-  },
-  {
-    state: 'configuracion',
-    name: 'Configuración',
-    type: 'sub',
-    icon: 'manage_accounts',
-    subMenu: [
-      { state: 'inicio', name: 'Inicio', type: 'link' },
-    ]
-  },
-  {
-    state: 'bodega',
-    name: 'Bodega',
-    type: 'sub',
-    icon: 'apps',
   }
-
 ];
 
 @Injectable()

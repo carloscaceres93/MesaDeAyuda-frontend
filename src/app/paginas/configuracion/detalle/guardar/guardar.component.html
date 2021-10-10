@@ -1,0 +1,49 @@
+<mat-card>
+
+    <mat-card-content>
+
+        <mat-card-title>
+            <h1 style="font-weight: 500;">
+                {{esModoEditar ? 'Modificar detalle': 'Nuevo detalle'}}
+            </h1>
+        </mat-card-title>
+
+        <form class="m-t-30" [formGroup]="form" (ngSubmit)="enviarFormulario()" #directivaForm="ngForm">
+
+            <div fxLayout="row" fxLayoutAlign="space-evenly center" fxLayoutGap="15px">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="valor" placeholder="Nombre" />
+                    <mat-error *ngIf="form.get('valor').hasError('required')">
+                        El nombre es requerido
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Seleccione la categoría</mat-label>
+                    <mat-select formControlName="maestroId">
+                        <mat-option *ngFor="let maestro of maestros" [value]="maestro.id">{{maestro.nombre}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start center" *ngIf="esModoEditar">
+
+                <mat-slide-toggle [color]="'primary'" formControlName="habilitado">Habilitado</mat-slide-toggle>
+
+            </div>
+
+            <div class="text-center">
+
+                <button mat-raised-button color="primary" [disabled]="!form.valid">
+                    {{esModoEditar ? 'Modificar': 'Crear'}}
+                </button>
+
+            </div>
+        </form>
+
+    </mat-card-content>
+</mat-card>
