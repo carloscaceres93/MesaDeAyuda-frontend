@@ -26,26 +26,31 @@
                 <table mat-table [dataSource]="fuenteDatos" matSort>
 
                     <ng-container matColumnDef="nombre">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
-                        <td mat-cell *matCellDef="let row"> {{row.valor}} </td>
+                        <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+                        <mat-cell mat-cell *matCellDef="let row">
+                          <span class="header-label"> Nombre :</span>{{row.valor}}
+                        </mat-cell>
                     </ng-container>
 
                     <ng-container matColumnDef="habilitado">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado </th>
-                        <td mat-cell *matCellDef="let row">{{row.habilitado ? 'Habilitado' : 'Inhabilitado'}} </td>
+                        <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>
+                        <mat-cell mat-cell *matCellDef="let row">
+                          <span class="header-label"> Estado :</span>{{row.habilitado ? 'Habilitado' : 'Inhabilitado'}}
+                        </mat-cell>
                     </ng-container>
 
                     <ng-container matColumnDef="modificar">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Modificar </th>
-                        <td mat-cell *matCellDef="let row">
+                        <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> Modificar </mat-header-cell>
+                        <mat-cell mat-cell *matCellDef="let row">
+                          <span class="header-label">Modificar :</span>
                             <button mat-icon-button (click)="redireccionarAModificar(row)">
                                 <mat-icon>edit</mat-icon>
                             </button>
-                        </td>
+                        </mat-cell>
                     </ng-container>
 
-                    <tr mat-header-row *matHeaderRowDef="columnasMostradas"></tr>
-                    <tr mat-row *matRowDef="let row; columns: columnasMostradas;"></tr>
+                    <mat-header-row mat-header-row *matHeaderRowDef="columnasMostradas"></mat-header-row>
+                    <mat-row  mat-row *matRowDef="let row; columns: columnasMostradas;"></mat-row>
 
                     <tr class="mat-row" *matNoDataRow>
                         <td class="mat-cell" colspan="4">No hay detalles en la categoría seleccionada</td>

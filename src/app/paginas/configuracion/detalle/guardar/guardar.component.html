@@ -10,27 +10,32 @@
 
         <form class="m-t-30" [formGroup]="form" (ngSubmit)="enviarFormulario()" #directivaForm="ngForm">
 
-            <div fxLayout="row" fxLayoutAlign="space-evenly center" fxLayoutGap="15px">
+            <div fxLayout="row wrap" fxFlexAlign="center" class="row">
 
-                <mat-form-field appearance="outline">
-                    <mat-label>Nombre</mat-label>
-                    <input matInput formControlName="valor" placeholder="Nombre" />
-                    <mat-error *ngIf="form.get('valor').hasError('required')">
-                        El nombre es requerido
-                    </mat-error>
-                </mat-form-field>
+                <div fxFlex.gt-sm="50" fxFlex="100" class="p-10">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput formControlName="valor" placeholder="Nombre" />
+                        <mat-error *ngIf="form.get('valor').hasError('required')">
+                            El nombre es requerido
+                        </mat-error>
+                    </mat-form-field>
 
-                <mat-form-field appearance="outline">
-                    <mat-label>Seleccione la categoría</mat-label>
-                    <mat-select formControlName="maestroId">
-                        <mat-option *ngFor="let maestro of maestros" [value]="maestro.id">{{maestro.nombre}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
+                </div>
+
+                <div fxFlex.gt-sm="50" fxFlex="100" class="p-10">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Seleccione la categoría</mat-label>
+                        <mat-select formControlName="maestroId">
+                            <mat-option *ngFor="let maestro of maestros" [value]="maestro.id">{{maestro.nombre}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
 
             </div>
 
-            <div fxLayout="row" fxLayoutAlign="start center" *ngIf="esModoEditar">
+            <div fxLayout="row wrap" fxFlexAlign="center" class="row" *ngIf="esModoEditar">
 
                 <mat-slide-toggle [color]="'primary'" formControlName="habilitado">Habilitado</mat-slide-toggle>
 
