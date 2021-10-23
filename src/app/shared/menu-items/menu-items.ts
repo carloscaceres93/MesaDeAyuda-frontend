@@ -1,9 +1,16 @@
 import { Injectable } from '@angular/core';
 
+export interface Item {
+  url: string;
+  nombre: string;
+  tipo?: string;
+}
+
 export interface SubMenu {
   url: string;
   nombre: string;
   tipo?: string;
+  item?: Item[];
 }
 
 export interface Menu {
@@ -21,8 +28,16 @@ const MENUITEMS: Menu[] = [
     tipo: 'sub',
     icono: 'manage_accounts',
     subMenu: [
-      { url: 'detalle/buscar', nombre: 'Buscar detalle', tipo: 'link' },
-      { url: 'detalle/nuevo', nombre: 'Nuevo detalle', tipo: 'link' }
+      {
+        url: 'detalle',
+        nombre: 'Detalle',
+        tipo: 'subchild',
+        item: [
+          { url: 'buscar', nombre: 'Buscar detalle', tipo: 'link' },
+          { url: 'nuevo', nombre: 'Nuevo detalle', tipo: 'link' }
+        ]
+      }
+
     ]
   }
 ];

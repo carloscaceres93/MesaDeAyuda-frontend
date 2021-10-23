@@ -40,7 +40,7 @@ export class LoginService {
 
   cerrarSesion(): void {
     sessionStorage.removeItem(environment.NOMBRE_TOKEN);
-    this.router.navigate(['login']);
+    this.router.navigate(['iniciar-sesion']);
   }
 
   obtenerUsuario() {

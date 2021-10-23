@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { Menu, MenuItems, SubMenu } from 'src/app/shared/menu-items/menu-items';
+import { Menu, MenuItems, SubMenu, Item } from 'src/app/shared/menu-items/menu-items';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 @Component({
@@ -15,6 +15,7 @@ export class SidebarComponent implements OnDestroy {
   @Output() notify: EventEmitter<boolean> = new EventEmitter<boolean>()
 
   private _mobileQueryListener: () => void;
+  showMenu = '';
 
   constructor(
     changeDetectorRef: ChangeDetectorRef,
@@ -37,8 +38,16 @@ export class SidebarComponent implements OnDestroy {
     });
   }
 
-  construirUrlSubMenu(menu: Menu, subMenu: SubMenu): String {
+  addExpandClass(element: any) {
+    if (element === this.showMenu) {
+      this.showMenu = '0';
+    } else {
+      this.showMenu = element;
+    }
+  }
 
-    return `/${menu.url}/${subMenu.url}`; 
+  construirUrlSubMenu(menu: Menu, subMenu: SubMenu, item: Item): String {
+
+    return `/${menu.url}/${subMenu.url}/${item.url}`;
   }
 }
