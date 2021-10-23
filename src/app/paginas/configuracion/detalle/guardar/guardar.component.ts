@@ -128,7 +128,7 @@ export class GuardarComponent implements OnInit {
 
   private limpiarFormulario(): void {
     this.directivaForm.resetForm();
-    this.form.reset();
+    this.constuirFormulario();
   }
 
   private armarDetalle(): Detalle {
